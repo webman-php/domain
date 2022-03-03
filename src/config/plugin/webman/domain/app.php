@@ -1,7 +1,6 @@
 <?php
 return [
     'enable' => true,
-    'short_url' => true, // 开启url简写
     // 多应用绑定关系
     'bind' => [
         'abc.com' => '', // 不属于任何应用
