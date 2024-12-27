@@ -9,6 +9,8 @@ return [
     ],
     // 绑定关系，域名，应用的验证逻辑，返回true时认为符合绑定关系，反之不符合返回404
     'check' => function ($bind, $domain, $app) {
-        return isset($bind[$domain]) && $bind[$domain] === $app;
+        // 域名存在大写时 检测会失效
+        $bind = array_change_key_case($bind, CASE_LOWER);
+        return isset($bind[strtolower($domain)]) && $bind[strtolower($domain)] === $app;
     }
 ];
